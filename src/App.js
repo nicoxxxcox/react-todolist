@@ -1,25 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    items: [],
+    textInput: "",
+  };
+
+  handleTextInput = (e) => {
+    this.setState({ textInput: e.currentTarget.value });
+  };
+
+  handleCheck = (id, e) => {
+    const itemscopy = this.state.items.slice();
+    const index = itemscopy.findIndex((item) => item.id === id);
+    // TODO : REPLACE THE DELETE BY CHECKED FALSE
+    itemscopy.splice(index, 1);
+
+    if (e.target.checked) {
+      this.setState({ items: itemscopy });
+    }
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const id = new Date().getTime();
+    const body = this.state.textInput;
+    const newtodo = { id: id, body: body, checked: false };
+    const allTodos = this.state.items.slice();
+    allTodos.push(newtodo);
+    this.setState({ items: allTodos, textInput: '' });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div className="card">
+          {this.state.items.map((item) => {
+            return (
+              <li id={item.id} key={item.id}>
+                {item.body}{" "}
+                <span>
+                  <input
+                    onChange={(e) => this.handleCheck(item.id, e)}
+                    type="checkbox"
+                  />
+                </span>
+              </li>
+            );
+          })}
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input
+              type="text"
+              value={this.state.textInput}
+              onChange={this.handleTextInput}
+            />
+            <button type="submit">+ Element de liste</button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
