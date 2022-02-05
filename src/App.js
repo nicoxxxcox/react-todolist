@@ -14,12 +14,11 @@ class App extends Component {
   handleCheck = (id, e) => {
     const itemscopy = this.state.items.slice();
     const index = itemscopy.findIndex((item) => item.id === id);
-    // TODO : REPLACE THE DELETE BY CHECKED FALSE
-    itemscopy.splice(index, 1);
+    itemscopy[index].checked = true
 
-    if (e.target.checked) {
-      this.setState({ items: itemscopy });
-    }
+    this.setState({ items: itemscopy });
+
+
   };
 
   handleSubmit = (e) => {
@@ -36,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="card">
-          {this.state.items.map((item) => {
+          {this.state.items.filter(item => !item.checked).map((item) => {
             return (
               <li id={item.id} key={item.id}>
                 {item.body}{" "}
@@ -56,6 +55,22 @@ class App extends Component {
               onChange={this.handleTextInput}
             />
             <button type="submit">+ Element de liste</button>
+
+
+
+            {this.state.items.filter(item => item.checked).map((item) => {
+            return (
+              <li id={item.id} key={item.id}>
+                <s>{item.body}</s>{" "}
+                <span>
+                  <input
+                    onChange={(e) => this.handleCheck(item.id, e)}
+                    type="checkbox"
+                  />
+                </span>
+              </li>
+            );
+          })}
           </form>
         </div>
       </div>
