@@ -1,22 +1,22 @@
-import React, { Component } from "react";
 import "./App.css";
+import React, { Component } from "react";
 
 class App extends Component {
   state = {
-    items: [],
-    textInput: "",
+    tasks: [],
+    taskInput: "",
   };
 
-  handleTextInput = (e) => {
-    this.setState({ textInput: e.currentTarget.value });
+  handleTaskInput = (e) => {
+    this.setState({ taskInput: e.currentTarget.value });
   };
 
-  handleCheck = (id, e) => {
-    const itemscopy = this.state.items.slice();
-    const index = itemscopy.findIndex((item) => item.id === id);
-    itemscopy[index].checked = true
+  handleCheck = (id) => {
+    const taskscopy = this.state.tasks.slice();
+    const index = taskscopy.findIndex((task) => task.id === id);
+    taskscopy[index].checked = true
 
-    this.setState({ items: itemscopy });
+    this.setState({ tasks: taskscopy });
 
 
   };
@@ -24,24 +24,24 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const id = new Date().getTime();
-    const body = this.state.textInput;
-    const newtodo = { id: id, body: body, checked: false };
-    const allTodos = this.state.items.slice();
-    allTodos.push(newtodo);
-    this.setState({ items: allTodos, textInput: '' });
+    const body = this.state.taskInput;
+    const newTask = { id: id, body: body, checked: false };
+    const alltasks = this.state.tasks.slice();
+    alltasks.push(newTask);
+    this.setState({ tasks: alltasks, taskInput: '' });
   };
 
   render() {
     return (
       <div className="App">
         <div className="card">
-          {this.state.items.filter(item => !item.checked).map((item) => {
+          {this.state.tasks.filter(task => !task.checked).map((task) => {
             return (
-              <li id={item.id} key={item.id}>
-                {item.body}{" "}
+              <li id={task.id} key={task.id}>
+                {task.body}{" "}
                 <span>
                   <input
-                    onChange={(e) => this.handleCheck(item.id, e)}
+                    onChange={(e) => this.handleCheck(task.id, e)}
                     type="checkbox"
                   />
                 </span>
@@ -51,27 +51,27 @@ class App extends Component {
           <form onSubmit={this.handleSubmit.bind(this)}>
             <input
               type="text"
-              value={this.state.textInput}
-              onChange={this.handleTextInput}
+              value={this.state.taskInput}
+              onChange={this.handleTaskInput}
             />
             <button type="submit">+ Element de liste</button>
+          </form>
 
 
 
-            {this.state.items.filter(item => item.checked).map((item) => {
+            {this.state.tasks.filter(task => task.checked).map(task => {
             return (
-              <li id={item.id} key={item.id}>
-                <s>{item.body}</s>{" "}
+              <li id={task.id} key={task.id}>
+                <s>{task.body}</s>{" "}
                 <span>
                   <input
-                    onChange={(e) => this.handleCheck(item.id, e)}
+                    onChange={() => this.handleCheck(task.id)}
                     type="checkbox"
                   />
                 </span>
               </li>
             );
           })}
-          </form>
         </div>
       </div>
     );
