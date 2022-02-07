@@ -26,6 +26,15 @@ class Todolist extends Component {
     this.setState({ tasks: taskscopy });
   };
 
+  handleClick = (id) => {
+    const taskscopy = this.state.tasks.slice();
+    const index = taskscopy.findIndex((task) => task.id === id);
+
+    taskscopy.splice(index, 1)
+
+    this.setState({ tasks: taskscopy });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     const id = new Date().getTime();
@@ -65,6 +74,7 @@ class Todolist extends Component {
               body={task.body}
               checked={task.checked}
               onChange={this.handleCheck}
+              onClick={this.handleClick}
             />
           ))}
       </div>
