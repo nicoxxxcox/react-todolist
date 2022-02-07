@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Task from "./Task";
 import "./Todolist.css";
 
 class Todolist extends Component {
@@ -14,7 +15,10 @@ class Todolist extends Component {
   handleCheck = (id) => {
     const taskscopy = this.state.tasks.slice();
     const index = taskscopy.findIndex((task) => task.id === id);
-    taskscopy[index].checked = true;
+
+    if(!taskscopy[index].checked) {
+      taskscopy[index].checked = true
+    } else { taskscopy[index].checked = false}
 
     this.setState({ tasks: taskscopy });
   };
@@ -32,45 +36,22 @@ class Todolist extends Component {
   render() {
     return (
       <div className="card">
-        {this.state.tasks
-          .filter((task) => !task.checked)
-          .map((task) => {
-            return (
-              <li key={task.id}>
-                {task.body}{" "}
-                <span>
-                  <input
-                    onChange={(e) => this.handleCheck(task.id, e)}
-                    type="checkbox"
-                  />
-                </span>
-              </li>
-            );
-          })}
+        {this.state.tasks.filter((task) => !task.checked).map((task) =>
+            <Task key={task.id} id={task.id} body={task.body} onChange={this.handleCheck} />
+            )}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
             value={this.state.taskInput}
             onChange={this.handleTaskInput}
-          />
+            />
           <button type="submit">+ Element de liste</button>
+            {JSON.stringify(this.state)}
         </form>
 
-        {this.state.tasks
-          .filter((task) => task.checked)
-          .map((task) => {
-            return (
-              <li key={task.id}>
-                <s>{task.body}</s>{" "}
-                <span>
-                  <input
-                    onChange={() => this.handleCheck(task.id)}
-                    type="checkbox"
-                  />
-                </span>
-              </li>
-            );
-          })}
+        {this.state.tasks.filter((task) => task.checked).map((task) =>
+          <Task key={task.id} id={task.id} body={task.body} checked={task.checked} onChange={this.handleCheck} />
+          )}
       </div>
     );
   }
