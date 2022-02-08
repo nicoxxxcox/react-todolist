@@ -3,6 +3,7 @@
   background-color: var(--color-gray-200);
   margin-bottom: 1rem;
   border-radius: var(--border-radius-primary);
+<<<<<<< HEAD
   border: 2px solid var(--color-gray-200);
 
   display: grid;
@@ -51,17 +52,27 @@ input[type="checkbox"]:checked::before {
 }
 
 
+=======
+}
+
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 
 .task__title {
   color: var(--color-gray-500);
   font-size: 1.2rem;
   font-weight: 500;
+<<<<<<< HEAD
   line-height: 1.0;
+=======
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 }
 
 del {
   position: relative;
+<<<<<<< HEAD
   margin: 0;
+=======
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 }
 
 del::before,
@@ -70,6 +81,7 @@ del::after {
   width: 100%;
   height: 3px;
   background-color: blue;
+<<<<<<< HEAD
 }
 
 .task__delBtn {
@@ -81,3 +93,6 @@ del::after {
   background-color: transparent;
   font-weight: 400;
 }
+=======
+}
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
