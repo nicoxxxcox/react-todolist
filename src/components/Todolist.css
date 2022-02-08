@@ -1,16 +1,26 @@
 .card {
   width: min(90vw , 40rem);
   min-height: 90vh;
+<<<<<<< HEAD
   background-color: var(--color-gray-500);
   border-radius: var(--border-radius-primary);
   padding: 1.2rem 1.7rem;
   background-image: linear-gradient(145deg, rgba(232, 87, 237, 0.15) 0%,rgba(109, 137, 69, 0.15) 100%),linear-gradient(75deg, rgb(33, 138, 184),rgb(0, 241, 181));
+=======
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-primary);
+  padding: 1.2rem 1.7rem;
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 }
 
 .title-1 {
   font-size: 3rem;
   font-weight: 700;
+<<<<<<< HEAD
   color: white;
+=======
+  color: var(--color-dark);
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
   margin-bottom: 2rem;
 }
 

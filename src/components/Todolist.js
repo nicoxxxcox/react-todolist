@@ -48,13 +48,21 @@ class Todolist extends Component {
   render() {
     return (
       <div className="card">
+<<<<<<< HEAD
         <h1 className="title-1">Ma Todolist</h1>
+=======
+        <h1 className="title-1">Task Manager</h1>
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
         <Form
           onSubmit={this.handleSubmit}
           onChange={this.handleTaskInput}
           taskInput={this.state.taskInput}
         />
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
         {this.state.tasks
           .filter((task) => !task.checked)
           .map((task) => (
