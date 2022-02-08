@@ -3,17 +3,19 @@ import "./Task.css";
 const Task = (props) => {
   const { id, body, checked, onChange, onClick } = props;
   return (
-    <li key={id}>
-      <span>
-        <input
-          checked={checked ? true : false}
-          onChange={() => onChange(id)}
-          type="checkbox"
-        />
+    <div key={id} className="task">
+      <input
+        className="task__checkbox"
+        checked={checked ? true : false}
+        onChange={() => onChange(id)}
+        type="checkbox"
+      />
+      <span className="task__title">
+        {" "}
+        {checked ? <del>{body}</del> : body}{" "}
       </span>
-      {" "}{checked ? <s>{body}</s> : body}{" "}
-      {checked ? <button onClick={() => onClick(id)}>&#10006;</button> : "" }
-    </li>
+      {checked ? <button className="task__delBtn" title="Supprimer" onClick={() => onClick(id)}>&#10006;</button> : ""}
+    </div>
   );
 };
 
