@@ -75,8 +75,8 @@ body,* {
 }
 
 #root {
-  --color-primary : #ffa3a3;
-  --color-secondary: #72d7ef;
+  --color-primary : #f05053;
+  --color-secondary: #e1eec3;
   --color-gray-500: #6d7287;
   --color-gray-200: #edf1f3;
   --color-dark: #161616;

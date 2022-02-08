@@ -2,17 +2,10 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1.6rem;
-<<<<<<< HEAD
   position: relative;
 }
 
 
-=======
-}
-
-
-
->>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 .taskForm__input {
   width: 100%;
   padding: var(--padding-box-primary);
@@ -21,13 +14,19 @@
   font-weight: 500;
   background-color: #fff;
   background-clip: padding-box;
-<<<<<<< HEAD
   border: 2px solid var(--color-gray-200);
   appearance: none;
   border-radius: var(--border-radius-primary);
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   line-height: 1;
   position: relative;
+}
+
+.taskForm__input:focus,
+.taskForm__input:active,
+.taskForm__input:target,
+.taskForm__input:focus-visible {
+  outline: 2px solid var(--color-primary);
 }
 
 
@@ -39,17 +38,6 @@
   line-height: 1;
   top: 10%;
   display: inline-block;
-=======
-  border: 2px solid #ced4da;
-  appearance: none;
-  border-radius: var(--border-radius-primary);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.taskForm__btn {
-  display: inline-block;
-color: #212529;
->>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 text-align: center;
 text-decoration: none;
 vertical-align: middle;
@@ -63,31 +51,19 @@ border: 2px solid transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
   border-left-color: transparent;
-<<<<<<< HEAD
 
 font-size: 1.8rem;
-=======
-padding: .5rem 1.4rem;
-font-size: 2.5rem;
->>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 font-weight: 700;
 border-radius: 50px;
 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-color: #0d6efd;
-border-color: #0d6efd;
+color: var(--color-primary);
+border-color: var(--color-primary);
 word-wrap: normal;
-<<<<<<< HEAD
 
-=======
->>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
 }
 
 .taskForm__btn:hover {
   color: #fff;
-background-color: #0d6efd;
-border-color: #0d6efd;
-<<<<<<< HEAD
+background-color: var(--color-primary);
+border-color: var(--color-primary);
 }
-=======
-}
->>>>>>> 0cdb635fb98f8da0bb8f05ec627e584d8720adad
