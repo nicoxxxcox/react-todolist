@@ -28,7 +28,7 @@ class Todolist extends Component {
 
   handleClick = (id) => {
     const taskscopy = this.state.tasks.slice();
-    const index = taskscopy.findIndex((task) => task.id === id);
+    const index = taskscopy.findIndex((task) => task.id === id)
 
     taskscopy.splice(index, 1)
 
@@ -39,11 +39,13 @@ class Todolist extends Component {
     e.preventDefault();
     const id = new Date().getTime();
     const body = this.state.taskInput;
-    const newTask = { id: id, body: body, checked: false };
-    const alltasks = this.state.tasks.slice();
+    const newTask = { id: id, body: body, checked: false }
+    const alltasks = this.state.tasks.slice()
     alltasks.push(newTask);
-    this.setState({ tasks: alltasks, taskInput: "" });
-  };
+   if(body !== '') {
+     this.setState({ tasks: alltasks, taskInput: "" })
+   }
+  }
 
   render() {
     return (
