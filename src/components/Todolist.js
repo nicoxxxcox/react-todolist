@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Task from "./Task";
+import TaskCount from "./TaskCount";
 import Form from "./Form";
 import "./Todolist.css";
 
@@ -51,6 +52,7 @@ class Todolist extends Component {
     return (
       <div className="card">
         <h1 className="title-1">Ma Todolist</h1>
+        <TaskCount count={this.state.tasks.length} />
         <Form
           onSubmit={this.handleSubmit}
           onChange={this.handleTaskInput}

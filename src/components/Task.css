@@ -10,6 +10,13 @@
   gap: 0.5em;
 }
 
+.taskCount {
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.2rem;
+
+}
+
 input[type="checkbox"] {
   /* Add if not using autoprefixer */
   -webkit-appearance: none;
@@ -26,8 +33,6 @@ input[type="checkbox"] {
   height: 1.15rem;
   border: 0.15rem solid var(--color-gray-500);
   border-radius: 0.15rem;
-
-
   display: grid;
   place-content: center;
   transition: 300ms transform ease-in-out;
