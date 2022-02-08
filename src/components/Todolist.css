@@ -1,4 +1,15 @@
 .card {
-  width: 20rem;
-  border: 1px solid salmon;
+  width: min(90vw , 40rem);
+  min-height: 90vh;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-primary);
+  padding: 1.2rem 1.7rem;
 }
+
+.title-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 2rem;
+}
+

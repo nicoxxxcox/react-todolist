@@ -1,0 +1,25 @@
+.task {
+  padding: var(--padding-box-primary);
+  background-color: var(--color-gray-200);
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-primary);
+}
+
+
+.task__title {
+  color: var(--color-gray-500);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+del {
+  position: relative;
+}
+
+del::before,
+del::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: blue;
+}
