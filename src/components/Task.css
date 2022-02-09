@@ -55,8 +55,6 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
-
-
 .task__title {
   color: var(--color-gray-500);
   font-size: 1.2rem;
