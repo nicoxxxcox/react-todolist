@@ -57,7 +57,7 @@ input[type="checkbox"]:checked::before {
 
 .task__title {
   color: var(--color-gray-500);
-  font-size: 1.2rem;
+  font-size: var(--fz-base);
   font-weight: 500;
   line-height: 1.0;
 }

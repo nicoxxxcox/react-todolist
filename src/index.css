@@ -82,4 +82,5 @@ body,* {
   --color-dark: #161616;
   --border-radius-primary: 11px;
   --padding-box-primary : 1rem 1.4rem;
+  --fz-base: clamp(0.9rem, 0.5216rem + 1.6961vw, 1.2rem);
 }

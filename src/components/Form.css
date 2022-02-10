@@ -10,7 +10,7 @@
   width: 100%;
   padding: var(--padding-box-primary);
   color: var(--color-gray-500);
-  font-size: 1.2rem;
+  font-size: var(--fz-base);
   font-weight: 500;
   background-color: #fff;
   background-clip: padding-box;
