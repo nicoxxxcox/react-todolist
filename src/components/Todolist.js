@@ -42,7 +42,7 @@ class Todolist extends Component {
     const body = this.state.taskInput;
     const newTask = { id: id, body: body, checked: false }
     const alltasks = this.state.tasks.slice()
-    alltasks.push(newTask);
+    alltasks.unshift(newTask);
    if(body !== '') {
      this.setState({ tasks: alltasks, taskInput: "" })
    }
