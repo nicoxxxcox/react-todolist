@@ -1,21 +1,19 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Task from "./Task";
 import TaskCount from "./TaskCount";
 import Form from "./Form";
 import "./Todolist.css";
 
-class Todolist extends Component {
-  state = {
-    tasks: [],
-    taskInput: "",
+const Todolist = () => {
+  const [tasks, setTasks] = useState([]);
+  const [taskInput, setTaskinput] = useState("");
+
+  const handleTaskInput = (e) => {
+    setTaskinput(e.currentTarget.value);
   };
 
-  handleTaskInput = (e) => {
-    this.setState({ taskInput: e.currentTarget.value });
-  };
-
-  handleCheck = (id) => {
-    const taskscopy = this.state.tasks.slice();
+  const handleCheck = (id) => {
+    const taskscopy = tasks.slice();
     const index = taskscopy.findIndex((task) => task.id === id);
 
     if (!taskscopy[index].checked) {
@@ -24,68 +22,66 @@ class Todolist extends Component {
       taskscopy[index].checked = false;
     }
 
-    this.setState({ tasks: taskscopy });
+    setTasks(taskscopy);
   };
 
-  handleClick = (id) => {
-    const taskscopy = this.state.tasks.slice();
-    const index = taskscopy.findIndex((task) => task.id === id)
+  const handleClick = (id) => {
+    const taskscopy = tasks.slice();
+    const index = taskscopy.findIndex((task) => task.id === id);
 
-    taskscopy.splice(index, 1)
+    taskscopy.splice(index, 1);
 
-    this.setState({ tasks: taskscopy });
+    setTasks(taskscopy);
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const id = new Date().getTime();
-    const body = this.state.taskInput;
-    const newTask = { id: id, body: body, checked: false }
-    const alltasks = this.state.tasks.slice()
+    const body = taskInput;
+    const newTask = { id: id, body: body, checked: false };
+    const alltasks = tasks.slice();
     alltasks.unshift(newTask);
-   if(body !== '') {
-     this.setState({ tasks: alltasks, taskInput: "" })
-   }
-  }
+    if (body !== "") {
+      setTasks(alltasks);
+      setTaskinput("");
+    }
+  };
 
-  render() {
-    return (
-      <div className="card">
-        <h1 className="title-1">Ma Todolist</h1>
-        <TaskCount count={this.state.tasks.length} />
-        <Form
-          onSubmit={this.handleSubmit}
-          onChange={this.handleTaskInput}
-          taskInput={this.state.taskInput}
-        />
+  return (
+    <div className="card">
+      <h1 className="title-1">Ma Todolist</h1>
+      <TaskCount count={tasks.length} />
+      <Form
+        onSubmit={handleSubmit}
+        onChange={handleTaskInput}
+        taskInput={taskInput}
+      />
 
-        {this.state.tasks
-          .filter((task) => !task.checked)
-          .map((task) => (
-            <Task
-              key={task.id}
-              id={task.id}
-              body={task.body}
-              onChange={this.handleCheck}
-            />
-          ))}
+      {tasks
+        .filter((task) => !task.checked)
+        .map((task) => (
+          <Task
+            key={task.id}
+            id={task.id}
+            body={task.body}
+            onChange={handleCheck}
+          />
+        ))}
 
-
-        {this.state.tasks
-          .filter((task) => task.checked)
-          .map((task) => (
-            <Task
-              key={task.id}
-              id={task.id}
-              body={task.body}
-              checked={task.checked}
-              onChange={this.handleCheck}
-              onClick={this.handleClick}
-            />
-          ))}
-      </div>
-    );
-  }
-}
+      {tasks
+        .filter((task) => task.checked)
+        .map((task) => (
+          <Task
+            key={task.id}
+            id={task.id}
+            body={task.body}
+            checked={task.checked}
+            onChange={handleCheck}
+            onClick={handleClick}
+          />
+        ))}
+    </div>
+  );
+};
 
 export default Todolist;
