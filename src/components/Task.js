@@ -1,9 +1,9 @@
 import "./Task.css";
 
 const Task = (props) => {
-  const { id, body, checked, onChange, onClick } = props;
+  const { id, body, checked, onChange, onClick, className } = props;
   return (
-    <div key={id} className="task">
+    <div key={id} className={`task ${className}`}>
       <input
         className="task__checkbox"
         checked={checked ? true : false}
