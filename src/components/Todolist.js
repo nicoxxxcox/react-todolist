@@ -18,6 +18,7 @@ const Todolist = () => {
 
     if (!taskscopy[index].checked) {
       taskscopy[index].checked = true;
+
     } else {
       taskscopy[index].checked = false;
     }
@@ -38,7 +39,7 @@ const Todolist = () => {
     e.preventDefault();
     const id = new Date().getTime();
     const body = taskInput;
-    const newTask = { id: id, body: body, checked: false };
+    const newTask = { id, body, checked: false };
     const alltasks = tasks.slice();
     alltasks.unshift(newTask);
     if (body !== "") {
@@ -65,6 +66,7 @@ const Todolist = () => {
             id={task.id}
             body={task.body}
             onChange={handleCheck}
+            className="fadein"
           />
         ))}
 
@@ -78,6 +80,7 @@ const Todolist = () => {
             checked={task.checked}
             onChange={handleCheck}
             onClick={handleClick}
+            className="fadeout"
           />
         ))}
     </div>
